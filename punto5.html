@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buscar en una Cadena</title>
+</head>
+<body>
+    <h1>Buscar en una Cadena</h1>
+
+    <p>Ingresa una cadena de texto:</p>
+    <input type="text" id="Cadena" placeholder="Cadena" class="btn btn-primary">
+    
+    <p>Ingresa una palabra clave:</p>
+    <input type="text" id="PalabraC" placeholder="Palabra Clave" class="btn btn-primary">
+
+    <button onclick="buscarPalabraClave()">Buscar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function buscarPalabraClave() {
+            var cadena = document.getElementById("Cadena").value;
+            var palabraClave = document.getElementById("PalabraC").value;
+
+          
+            if (cadena.includes(palabraClave)) {
+                document.getElementById("resultado").textContent = "La palabra clave aparece en la cadena.";
+            } else {
+                document.getElementById("resultado").textContent = "La palabra clave no aparece en la cadena.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reemplazo de Vocales</title>
+</head>
+<body>
+    <h1>Reemplazo de Vocales</h1>
+
+    <p>Ingresa una cadena de texto:</p>
+    
+    <input name="" id="Cadena" class="btn btn-primary" type="text" placeholder="cadena">
+
+    <button onclick="reemplazarVocales()">Reemplazar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function reemplazarVocales() {
+            var cadena = document.getElementById("Cadena").value;
+
+            cadena = cadena.replace(/a/g, '*');
+            cadena = cadena.replace(/e/g, '/');
+            cadena = cadena.replace(/i/g, '+');
+            cadena = cadena.replace(/o/g, '-');
+            cadena = cadena.replace(/u/g, '#');
+
+            document.getElementById("resultado").textContent = "Resultado: " + cadena;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Longitud de Palabras</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Longitud de Palabras</h1>
+
+    <p>Ingresa una oración:</p>
+    <input type="text" id="Oracion" placeholder="Oración" class="btn btn-primary">
+    <button onclick="mostrarLongitudes()">Mostrar Longitudes</button><br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Palabra</th>
+                <th>Longitud</th>
+            </tr>
+        </thead>
+        <tbody id="tablaR">
+        </tbody>
+    </table>
+
+    <script>
+        function mostrarLongitudes() {
+            var oracion = document.getElementById("Oracion").value;
+            var palabras = oracion.split(" ");
+
+            var tablaResultados = document.getElementById("tablaR");
+            tablaResultados.innerHTML = "";
+
+            for (var i = 0; i < palabras.length; i++) {
+                var palabra = palabras[i];
+                var longitud = palabra.length;
+
+                var fila = document.createElement("tr");
+                var celdaPalabra = document.createElement("td");
+                var celdaLongitud = document.createElement("td");
+
+                celdaPalabra.textContent = palabra;
+                celdaLongitud.textContent = longitud;
+
+                fila.appendChild(celdaPalabra);
+                fila.appendChild(celdaLongitud);
+
+                tablaResultados.appendChild(fila);
+            }
+        }
+    </script>
+</body>
+</html>

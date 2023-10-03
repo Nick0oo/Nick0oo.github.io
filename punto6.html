@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de Palabras</title>
+</head>
+<body>
+    <h1>Contador de Palabras</h1>
+
+    <p>Ingresa una frase:</p>
+    <input type="text" id="inputFrase" placeholder="Frase" class="btn btn-primary">
+    <button onclick="contarPalabras()">Contar Palabras</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function contarPalabras() {
+            var frase = document.getElementById("inputFrase").value;
+
+            var palabras = frase.split(" ");
+
+            
+            palabras = palabras.filter(function (palabra) {
+                return palabra.trim() !== "";
+            });
+
+           
+            var cantidadPalabras = palabras.length;
+
+            document.getElementById("resultado").textContent = "Número de palabras: " + cantidadPalabras;
+        }
+    </script>
+</body>
+</html>

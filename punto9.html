@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mayúsculas y Minúsculas</title>
+</head>
+<body>
+    <h1>Mayúsculas y Minúsculas</h1>
+
+    <p>Ingresa una cadena de texto:</p>
+    <input type="text" id="Cadena" placeholder="Cadena" class="btn btn-primary">
+    <button onclick="convertirMayusculas()">Mayúsculas</button>
+    <button onclick="convertirMinusculas()">Minúsculas</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function convertirMayusculas() {
+            var cadena = document.getElementById("Cadena").value;
+            var cadenaMayusculas = cadena.toUpperCase();
+            document.getElementById("resultado").textContent = "En Mayúsculas: " + cadenaMayusculas;
+        }
+
+        function convertirMinusculas() {
+            var cadena = document.getElementById("Cadena").value;
+            var cadenaMinusculas = cadena.toLowerCase();
+            document.getElementById("resultado").textContent = "En Minúsculas: " + cadenaMinusculas;
+        }
+    </script>
+</body>
+</html>

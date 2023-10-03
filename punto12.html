@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mayúsculas a Minúsculas y Viceversa</title>
+</head>
+<body>
+    <h1>Mayúsculas a Minúsculas y Viceversa</h1>
+
+    <p>Ingresa palabras separadas por comas:</p>
+    <input type="text" id="Palabras" placeholder="Palabras">
+    <button onclick="modificarPalabras()">Modificar</button>
+
+    <p>Palabras modificadas:</p>
+    <ul id="listaModificada"></ul>
+
+    <script>
+        function modificarPalabras() {
+            var palabrasInput = document.getElementById("Palabras").value;
+            var palabras = palabrasInput.split(",");
+
+            var palabrasModificadas = palabras.map(function(palabra) {
+                return cambiarMayusculasMinisculas(palabra);
+            });
+
+            var listaModificada = document.getElementById("listaModificada");
+            listaModificada.innerHTML = "";
+            palabrasModificadas.forEach(function(palabra) {
+                var elementoLista = document.createElement("li");
+                elementoLista.textContent = palabra;
+                listaModificada.appendChild(elementoLista);
+            });
+        }
+
+        function cambiarMayusculasMinisculas(palabra) {
+            var palabraModificada = "";
+            for (var i = 0; i < palabra.length; i++) {
+                var caracter = palabra[i];
+                if (caracter === caracter.toUpperCase()) {
+                    palabraModificada += caracter.toLowerCase();
+                } else {
+                    palabraModificada += caracter.toUpperCase();
+                }
+            }
+            return palabraModificada;
+        }
+    </script>
+</body>
+</html>

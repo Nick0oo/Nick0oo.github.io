@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validación de Contraseña</title>
+</head>
+<body>
+    <h1>Validación de Contraseña</h1>
+    
+    <p>Por favor, cree una contraseña:</p>
+    <input name="" id="passwordInput" class="btn btn-primary" type="password" >
+    
+    <button onclick="validarContraseña()">Validar Contraseña</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function validarContraseña() {
+            var contraseña = document.getElementById("passwordInput").value;
+            var resultado = document.getElementById("resultado");
+
+            
+            if (contraseña.length < 8) {
+                resultado.textContent = "La contraseña debe tener al menos 8 caracteres.";
+            } else if (!/[A-Z]/.test(contraseña)) {
+                resultado.textContent = "La contraseña debe contener al menos una letra mayúscula.";
+            } else if (!/\d/.test(contraseña)) {
+                resultado.textContent = "La contraseña debe contener al menos un número.";
+            } else if (/\s/.test(contraseña)) {
+                resultado.textContent = "La contraseña no debe contener espacios en blanco.";
+            } else {
+                resultado.textContent = "La contraseña es válida.";
+            }
+        }
+    </script>
+</body>
+</html>

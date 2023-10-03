@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inversión de Cadena</title>
+</head>
+<body>
+    <h1>Inversión de Cadena</h1>
+
+    <p>Ingresa una cadena de texto:</p>
+    <input type="text" id="Cadena" placeholder="Cadena" class="btn btn-primary">
+    <button onclick="invertirCadena()">Invertir Cadena</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function invertirCadena() {
+            var cadena = document.getElementById("Cadena").value;
+
+            function invertir(cadena) {
+                var cadenaInvertida = "";
+                for (var i = cadena.length - 1; i >= 0; i--) {
+                    cadenaInvertida += cadena[i];
+                }
+                return cadenaInvertida;
+            }
+
+            var cadenaInvertida = invertir(cadena);
+            document.getElementById("resultado").textContent = "Cadena Invertida: " + cadenaInvertida;
+        }
+    </script>
+</body>
+</html>

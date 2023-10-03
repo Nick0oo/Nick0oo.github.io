@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contador de Palabras Únicas</title>
+</head>
+<body>
+    <script>
+        
+        function contarPalabrasUnicas() {
+           
+            var parra = prompt("Ingrese un párrafo:");
+
+            
+            var palabras = parra.toLowerCase().split(/\s+/);
+
+        
+            var palabrasU = {};
+
+       
+            for (var i = 0; i < palabras.length; i++) {
+                var palabra = palabras[i];
+                palabrasU[palabra] = true;
+            }
+
+            var cantPalabrasU = Object.keys(palabrasU).length;
+
+            alert("El número de palabras únicas en el párrafo es: " + cantPalabrasU);
+        }
+
+        window.onload = contarPalabrasUnicas;
+    </script>
+</body>
+</html>

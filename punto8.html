@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verificar Fruta</title>
+</head>
+<body>
+    <h1>Verificar Fruta</h1>
+
+    <p>Ingresa el nombre de una fruta:</p>
+    <input type="text" id="Fruta" placeholder="Fruta" class="btn btn-primary" >
+    <button onclick="verificarFruta()">Verificar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        // Array de nombres de frutas
+        var frutas = ["fresa", "pera", "manzana", "uva", "banana", "naranja", "sandía", "mango", "piña", "plátano", "kiwi", "papaya", "chontaduro", "melone", "limone", "araza", "zapote", "caimo", "guama", "pomorroso"];
+
+        function verificarFruta() {
+            var frutaIngresada = document.getElementById("Fruta").value.toLowerCase();
+
+            // Verificar si la fruta ingresada está en el array de frutas
+            if (frutas.includes(frutaIngresada)) {
+                document.getElementById("resultado").textContent = "Sí, la fruta está en el array de frutas.";
+            } else {
+                document.getElementById("resultado").textContent = "No, la fruta no está en el array de frutas.";
+            }
+        }
+    </script>
+</body>
+</html>
