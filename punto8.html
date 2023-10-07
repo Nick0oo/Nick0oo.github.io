@@ -2,24 +2,90 @@
 <html>
 <head>
     <title>Verificar Fruta</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input[type="text"]::placeholder {
+            color: #777;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            color: #777;
+            margin-top: 10px;
+        }
+
+        #resultado {
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Verificar Fruta</h1>
+    
+    <div class="container">
+        <h1>Verificar Fruta</h1>
 
-    <p>Ingresa el nombre de una fruta:</p>
-    <input type="text" id="Fruta" placeholder="Fruta" class="btn btn-primary" >
-    <button onclick="verificarFruta()">Verificar</button>
+        <p>Ingresa el nombre de una fruta:</p>
+        <input type="text" id="Fruta" placeholder="Ingresa el nombre de una fruta">
+        <button class="btn" onclick="verificarFruta()">Verificar</button>
 
-    <p id="resultado"></p>
+        <p id="resultado"></p>
+    </div>
 
     <script>
-        // Array de nombres de frutas
+      
         var frutas = ["fresa", "pera", "manzana", "uva", "banana", "naranja", "sandía", "mango", "piña", "plátano", "kiwi", "papaya", "chontaduro", "melone", "limone", "araza", "zapote", "caimo", "guama", "pomorroso"];
 
         function verificarFruta() {
             var frutaIngresada = document.getElementById("Fruta").value.toLowerCase();
 
-            // Verificar si la fruta ingresada está en el array de frutas
             if (frutas.includes(frutaIngresada)) {
                 document.getElementById("resultado").textContent = "Sí, la fruta está en el array de frutas.";
             } else {

@@ -2,21 +2,86 @@
 <html>
 <head>
     <title>Duplicar Elementos en un Array</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input[type="number"]::placeholder {
+            color: #777;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Duplicar Elementos en un Array</h1>
+    
+    <div class="container">
+        <h1>Duplicar Elementos en un Array</h1>
 
-    <p>Ingresa números y presiona "Agregar" para agregarlos al array:</p>
-    <input type="number" id="N" placeholder="Número" class="btn btn-primary">
-    <button onclick="agregarNumero()">Agregar</button>
+        <p>Ingresa números y presiona "Agregar" para agregarlos al array:</p>
+        <input type="number" id="N" placeholder="Número">
+        <button class="btn" onclick="agregarNumero()">Agregar</button>
 
-    <p>Array original:</p>
-    <ul id="arrayOriginal"></ul>
+        <p>Array original:</p>
+        <ul id="arrayOriginal"></ul>
 
-    <button onclick="duplicarElementos()">Duplicar</button>
+        <button class="btn" onclick="duplicarElementos()">Duplicar</button>
 
-    <p>Array duplicado:</p>
-    <ul id="arrayDuplicado"></ul>
+        <p>Array duplicado:</p>
+        <ul id="arrayDuplicado"></ul>
+    </div>
 
     <script>
         var numeros = [];
@@ -56,3 +121,4 @@
     </script>
 </body>
 </html>
+

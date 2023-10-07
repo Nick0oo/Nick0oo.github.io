@@ -2,16 +2,83 @@
 <html>
 <head>
     <title>Mayúsculas y Minúsculas</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input[type="text"]::placeholder {
+            color: #777;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            color: #777;
+            margin-top: 10px;
+        }
+
+        #resultado {
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mayúsculas y Minúsculas</h1>
+    
+    <div class="container">
+        <h1>Mayúsculas y Minúsculas</h1>
 
-    <p>Ingresa una cadena de texto:</p>
-    <input type="text" id="Cadena" placeholder="Cadena" class="btn btn-primary">
-    <button onclick="convertirMayusculas()">Mayúsculas</button>
-    <button onclick="convertirMinusculas()">Minúsculas</button>
+        <p>Ingresa una cadena de texto:</p>
+        <input type="text" id="Cadena" placeholder="Ingresa una cadena">
+        <button class="btn" onclick="convertirMayusculas()">Mayúsculas</button>
+        <button class="btn" onclick="convertirMinusculas()">Minúsculas</button>
 
-    <p id="resultado"></p>
+        <p id="resultado"></p>
+    </div>
 
     <script>
         function convertirMayusculas() {
