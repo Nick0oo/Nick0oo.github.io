@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #cabecera {
+            width: 10px;
+            height: 10px;
+            background-color: brown;
+        }
+        
+        #color {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            transition: background-color 1s linear;
+        }
+        
+        #miBarra {
+            width: 0%;
+            height: 20px;
+            background-color: orange;
+        }
+        
+        #miCuadrado {
+            width: 50px;
+            height: 50px;
+            background-color: rgb(136, 7, 3);
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cabecera"></div>
+    <button onclick="aumentar();">Aumentar</button>
+    <script>
+        let cab = document.getElementById("cabecera");
+
+        let w = cab.offsetWidth;
+        let h = cab.offsetHeight;
+
+        function aumentar() {
+            w += 10;
+            h += 10;
+            cab.style.width = w + 'px';
+            cab.style.height = h + 'px';
+            if (w < 200) {
+                setTimeout(function() {
+                    aumentar()
+                }, 50);
+            }
+        }
+    </script>
+
+    <div id="color"></div>
+    <button onclick="cambiar();">Cambiar</button>
+    <script>
+        let col = document.getElementById("color");
+
+        let colores = ["red", "green", "blue", "pink", "purple"];
+
+        let indice = 0;
+
+        function cambiar() {
+
+            indice = (indice + 1) % colores.length;
+
+            col.style.backgroundColor = colores[indice];
+        }
+    </script>
+
+    <div id="miBarra"></div>
+    <button id="miBoton" onclick="animar();">Animar</button>
+
+    <script>
+        let bar = document.getElementById("miBarra");
+
+        let ancho = 0;
+
+        function animar() {
+
+            ancho = 0;
+
+            let id = setInterval(frame, 10);
+
+            function frame() {
+
+                if (ancho >= 100) {
+                    clearInterval(id);
+                } else {
+
+                    ancho++;
+                    bar.style.width = ancho + "%";
+                }
+            }
+        }
+    </script>
+
+    <div id="miCuadrado"></div>
+
+    <script>
+        let cuad = document.getElementById("miCuadrado");
+
+        let pixeles = 5;
+
+        function mover(e) {
+
+            let tecla = e.keyCode;
+
+            if (tecla >= 37 && tecla <= 40) {
+
+                let x = cuad.offsetLeft;
+                let y = cuad.offsetTop;
+
+                switch (tecla) {
+                    case 37:
+                        x -= pixeles;
+                        break;
+                    case 38:
+                        y -= pixeles;
+                        break;
+                    case 39:
+                        x += pixeles;
+                        break;
+                    case 40:
+                        y += pixeles;
+                        break;
+                }
+
+                cuad.style.left = x + "px";
+                cuad.style.top = y + "px";
+            }
+        }
+
+        window.addEventListener("keydown", mover);
+    </script>
+</body>
+
+</html>
