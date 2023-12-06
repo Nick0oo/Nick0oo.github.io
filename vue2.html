@@ -1,0 +1,144 @@
+<html>
+<head>
+  <title>template </title>
+  <style>
+    #app {
+      display: inline-block;
+      padding: 10px;
+      font-size: x-large;
+      background-color: lightgreen;
+    }
+  </style>
+  <style>
+    form {
+      border: dashed black 1px;
+      display: inline-block;
+      padding: 10px;
+    }
+    label {
+      padding: 5px;
+    }
+    label:hover {
+      cursor: pointer;
+      background-color: rgb(231, 38, 38);
+      border-radius: 5px;
+    }
+  </style>
+  <style>
+    #dap {
+      border: dashed black 1px;
+      width: 200px;
+      padding: 0 10px 10px 10px;
+    }
+    #dap > div {
+      width: 200px;
+      height: 50px;
+      border: solid black 1px;
+      background-color: lightgreen;
+    }
+    #dap > p {
+      font-size: large;
+      font-weight: bold;
+    }
+    .valid {
+      color: green;
+    }
+    .invalid {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<h1>'template'</h1>
+
+<p>hola</p>
+
+<div id="app"></div>
+<div id="maap">
+  <form>
+    <p>
+      item a importar
+      <label>
+         <input type="checkbox" v-model="chbxVal"> 
+         {{ isImportant }}
+      </label>
+    </p>
+  </form>
+</div>
+<br>
+<div id="dap">
+  <label>
+    <p>Escriba una dirección de correo electrónico válida:</p>
+    <input type="email" v-model="inpAddress">
+  </label>
+  <p v-bind:class="myClass"><code>{{ feedbackText }}</code></p> 
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+  const app = Vue.createApp({
+    template: 
+    `<h1>{{ message }}</h1>
+    <p>romer es alto maricon, quemenlo</p>`,
+    data() {
+      return {
+      message: "Hola mundo"
+      }
+    }
+  })
+  
+  app.mount('#app')
+
+</script>
+<script>
+  const maap = Vue.createApp({
+    data() {
+      return {
+        chbxVal: false
+      }
+    },
+    computed: {
+      isImportant() {
+        if(this.chbxVal){
+          return 'yes'
+        }
+        else {
+          return 'no'
+        }
+      }
+    } //problemas aqui
+  })
+ maap.mount('#maap')
+</script>
+<script>
+  const dap = Vue.createApp({
+    data() {
+      return {
+        inpAddress: '',
+        feedbackText: '',
+        myClass: 'invalid'
+      }
+    },
+    watch: {
+      inpAddress(newVal,oldVal) {
+        if(!newVal.includes('@')){
+          this.feedbackText = 'El correo no es valido';
+          this.myClass = 'invalid';
+        }
+        else if(!oldVal.includes('@') && newVal.includes('@')) {
+          this.feedbackText = 'el correo el valido';
+          this.myClass = 'valid'
+        }
+        else {
+          this.feedbackText = ':/';
+        }
+      }
+    }
+  })
+ dap.mount('#dap')
+</script>
+
+</body>
+</html>
